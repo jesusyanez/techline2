@@ -1,0 +1,46 @@
+                   TECHLINE 2.0
+                 ---------------
+       [PYTHON, REACT, TAILWINDCSS, DAISYUI]
+    -------------------------------------------
+    
+	1. convert csv to json
+	  1. make new scraper in node
+	  
+	  2. use same old one
+	  
+	2. create react frontend
+		- components:
+		  - infinite scroll
+		  - navbar
+		
+Crontab
+##################################################
+
+0 */6 * * * /home/pi/Desktop/scripts/csv.sh
+2 */6 * * * /home/pi/Desktop/scripts/html.sh
+
+		
+Rapsberry pi scripts
+##################################################
+
+/home/pi/Desktop/scripts/csv.sh
+
+#!/bin/bash
+
+cd /home/pi/Desktop/Reddit-scraper-to-html-table/data
+python reddit_scraper.py
+cd /home/pi/Desktop/Reddit-scraper-to-html-table && /usr/bin/git add . && /usr/bin/git commit -m "latest update"
+cd /home/pi/Desktop/Reddit-scraper-to-html-table && /usr/bin/git push
+
+###################################################
+
+/home/pi/Desktop/scripts/html.sh
+
+#!/bin/bash
+
+cd /home/pi/Desktop/Techline
+python top_10_week.py
+cd /home/pi/Desktop/Techline && /usr/bin/git add . && /usr/bin/git commit -m "latest update"
+cd /home/pi/Desktop/Techline && /usr/bin/git push
+
+
